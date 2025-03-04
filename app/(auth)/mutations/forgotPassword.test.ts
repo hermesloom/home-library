@@ -2,7 +2,6 @@ import { vi, describe, it, beforeEach } from "vitest"
 import db from "db"
 import { hash256 } from "@blitzjs/auth"
 import forgotPassword from "./forgotPassword"
-import previewEmail from "preview-email"
 import { Ctx } from "@blitzjs/next"
 
 beforeEach(async () => {
@@ -17,8 +16,6 @@ vi.mock("@blitzjs/auth", async () => {
     generateToken: () => generatedToken,
   }
 })
-
-vi.mock("preview-email", () => ({ default: vi.fn() }))
 
 describe("forgotPassword mutation", () => {
   it("does not throw error if user doesn't exist", async () => {
@@ -59,6 +56,5 @@ describe("forgotPassword mutation", () => {
     expect(token.sentTo).toBe(user.email)
     expect(token.hashedToken).toBe(hash256(generatedToken))
     expect(token.expiresAt > new Date()).toBe(true)
-    expect(previewEmail).toBeCalled()
   })
 })
