@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "home-library",
+  title:
+    `${process.env.NEXT_PUBLIC_LIBRARY_SUBTITLE} | ${process.env.NEXT_PUBLIC_LIBRARY_NAME}` ||
+    "home-library",
   description:
+    process.env.NEXT_PUBLIC_LIBRARY_SUBTITLE ||
     "A minimalist self-hosted web application for displaying books you own for lending them out.",
 }
 
