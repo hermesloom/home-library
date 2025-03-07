@@ -124,3 +124,46 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Swiper customizations */
+.book-swiper {
+  width: 100%;
+  margin: 0;
+}
+
+.book-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: hsl(var(--primary)) !important;
+  background: hsla(var(--background) / 0.7);
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1rem !important;
+  font-weight: bold;
+}
+
+.swiper-pagination-bullet {
+  background: hsl(var(--muted-foreground)) !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: hsl(var(--primary)) !important;
+  opacity: 1 !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0 !important;
+}

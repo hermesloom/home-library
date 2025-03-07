@@ -1,14 +1,16 @@
-import { SimpleRolesIsAuthorized } from "@blitzjs/auth"
-import { User } from "@/db"
+export interface Book {
+  id: number
+  title: string
+  author: string
+  year: number | null
+  images: string[]
+  description: string
+}
 
-export type Role = "ADMIN" | "USER"
-
-declare module "@blitzjs/auth" {
-  export interface Session {
-    isAuthorized: SimpleRolesIsAuthorized<Role>
-    PublicData: {
-      userId: User["id"]
-      role: Role
-    }
-  }
+export interface BookCollection {
+  id: number
+  name: string
+  books: Book[]
+  createdAt: Date
+  updatedAt: Date
 }
