@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { BlitzProvider } from "./blitz-client"
 import "./globals.css"
+import { redirect } from "next/navigation"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Unconditionally redirect to Google Sheets
+  redirect(
+    "https://docs.google.com/spreadsheets/d/138opT8IcW6DUSAvA3A5Kb5Pg4bgEtltXHFO1l13s--E/edit"
+  )
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
